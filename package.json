@@ -1,6 +1,6 @@
 {
   "name": "BoostArray",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "Booster shot for Javascript Arrays",
   "main": "BoostArray.js",
   "scripts": {
