@@ -121,4 +121,36 @@ describe('BoostArray', function() {
 		});
 
 	});
+
+	describe('#indexOf', function() {
+		var plainArray, boostedArray, spy;
+
+		beforeEach(function() {
+			plainArray = [1,2,3,4,'buzz',6];
+			boostedArray = BoostArray(plainArray.slice(0));
+		})
+
+		it('should run on boosted array', function() {
+			var result = boostedArray.$indexOf(3);
+			expect(result).to.equal(2);
+		});
+
+		it('can be invoked on plain array', function() {
+			var result = BoostArray.$indexOf.call(plainArray, 3);
+			expect(result).to.equal(2);
+		});
+
+		it('should return -1 if not found', function() {
+			var result = boostedArray.$indexOf('fizz');
+			expect(result).to.equal(-1);
+		});
+
+		it('should return -1 if array is empty', function() {
+			var result = BoostArray([]).$indexOf('buzz');
+			expect(result).to.equal(-1);
+		});
+
+
+	});
+
 });

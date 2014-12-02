@@ -3,7 +3,7 @@ BoostArray
 
 Booster shot for JavaScript Arrays
 
-The fastest way to iterate over an array in JavaScript is always going to be writing out the explicit `for` loop like this[~~citation needed~~]:
+The fastest way to iterate over an array in JavaScript is always going to be writing out the explicit `for` loop like this[*citation needed*]:
 
 ```
 var i, len = myArray.length;
@@ -18,7 +18,7 @@ However, nothing beats the convenience of JavaScript's `forEach` function (and s
 myArray.forEach(myFunc);
 ```
 
-However convenience comes at a cost.  `forEach`, and siblings, do various type checking and have various extra features not needed 99% [tbr, ~~citation needed~~] of the time.  These features (desiered in many cases) slow the looping process down significantly (see benchmarks below).
+However convenience comes at a cost.  `forEach`, and siblings, do various type checking and have various extra features not needed 93% of the time (based on very unscientific analysis of my code).  These features (desiered in many cases) slow the looping process down significantly (see benchmarks below).
 
 BoostArray is like a Booster shot for JavaScript Arrays in that it adds addition fast versions of forEach and siblings to a plain ordinary array (POA) or all arrays (see usage below).  Switching between the standard method and the boosted methods can be as simple as adding a single character:
 
@@ -30,7 +30,7 @@ myArray.$forEach(myFunc);
 
 There are three ways to use BoostArray:
 
-## As a booster for Plain Ordinary Arrays (POAs) (recommended method)
+## As a boost for Plain Ordinary Arrays (POAs) (recommended method)
 
 ```
 var boostedArray = BoostArray();
@@ -47,7 +47,7 @@ BoostArray(myArray);
 myArray.$forEach(myFunc);
 ```
 
-## As a booster for all arrays
+## As a boost for all arrays
 
 ```
 BoostArray(Array.prototype);
@@ -56,7 +56,7 @@ myArray.$forEach(myFunc);
 
 This will boost all POAs.  Any JavaScript array will now have the fast "boosted" methods.
 
-## As a toolset
+## As a boosting toolset
 
 ```
 BoostArray.$forEach.call(myArray, myFunc);
@@ -66,9 +66,9 @@ Using JavaScript's `Function.prototype.call()` the BoostArray methods can be app
 
 # Methods
 
-A boosted array (by any of first two methods above) is still a plain ordinary JavaScript Array.  Therefore it contains all the standard [Array.prototype methods](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype).
+A boosted array (by any of first two methods above) is still an ordinary JavaScript Array.  Therefore it contains all the standard [Array.prototype methods](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/prototype).
 
-In addition a boosted array contains the following methods:
+In addition a boosted array contains the following additional methods (notice the dollar sign for boosted methods):
 
 ## BoostArray.$forEach(callback)
 Calls the callback function for each element in the array in ascending order.
@@ -96,11 +96,19 @@ Apply a function against each value of the array (from left-to-right) as to redu
 
 For benchmarks see [Hypercubed/ArraySpeedTests](https://github.com/Hypercubed/ArraySpeedTests)
 
+# Contributions
+
+Pull requests are appreciated.  However, remember keep it fast by:
+
+1) no callback binding
+2) no type checking
+3) no element index or reference to the original array
+
 # Acknowledgements
 
-BoostArray is written by J. Harshbarger inspired by PowerArray(https://github.com/techfort/PowerArray), fast.js(https://github.com/codemix/fast.js/tree/master), ramda(https://github.com/ramda/ramda), and lodash(https://github.com/lodash/lodash/).
+BoostArray was inspired by PowerArray(https://github.com/techfort/PowerArray), fast.js(https://github.com/codemix/fast.js/tree/master), ramda(https://github.com/ramda/ramda), and lodash(https://github.com/lodash/lodash/).
 
 ## License
-Copyright (c) 2013 Jayson Harshbarger
+2014 Jayson Harshbarger
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)

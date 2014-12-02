@@ -19,6 +19,7 @@
 		array.$reduce = BoostArray.$reduce;
 		array.$filter = BoostArray.$filter;
 		array.$map = BoostArray.$map;
+		array.$indexOf = BoostArray.$indexOf;
 		return array;
 	}
 
@@ -41,6 +42,7 @@
 	* Boosted `.reduce()`.
 	*
 	* @param  {Function}  fn  Visitor function.
+	* @param  {mixed}  acc The initial value for the reduce.
 	*/
 	BoostArray.$reduce = function $reduce(fn, acc) {
 		var i = -1,
@@ -58,10 +60,8 @@
 	* @param  {Function}  fn  Visitor function.
 	*/
 	BoostArray.$filter = function $filter(fn) {
-		var r = [],
-		ri = -1;
-		var i = -1,
-		len = this.length;
+		var r = [], ri = -1;
+		var i = -1, len = this.length;
 		while (++i < len) {
 			var value = this[i];
 			if (fn(value)) {
@@ -78,14 +78,32 @@
 	* @param  {Function}  fn  Visitor function.
 	*/
 	BoostArray.$map = function $map(fn) {
-		var i = -1,
-		len = this.length,
-		r = new Array(len);
+		var i = -1, len = this.length;
+		var r = new Array(len);
 		while (++i < len) {
 			r[i] = fn(this[i]);
 		}
 		return r;
 	}
+
+	/**
+	* # indexOf
+	* Boosted `.indexOf()`.
+	*
+	* @param  {Function}  fn  Visitor function.
+	*/
+	BoostArray.$indexOf = function(searchElement) {
+
+		var i = -1,
+			len = this.length;
+
+		while (++i < len) {
+			if (this[i] === searchElement) {
+				return i;
+			}
+		}
+		return -1;
+	};
 
 	if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
 		module.exports = BoostArray;
