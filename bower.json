@@ -1,0 +1,27 @@
+{
+  "name": "BoostArray",
+  "version": "0.0.0",
+  "authors": [
+    "Jayson Harshbarger <hypercubed@gmail.com>"
+  ],
+  "description": "Booster shot for Javascript Arrays",
+  "main": "BoostArray.js",
+  "keywords": [
+    "javascript",
+    "arrays",
+    "performance",
+    "fast",
+    "filter",
+    "reduce",
+    "map"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Hypercubed/BoostArray",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "BoostArray",
+  "version": "0.0.0",
+  "description": "Booster shot for Javascript Arrays",
+  "main": "BoostArray.js",
+  "scripts": {
+    "test": "mocha -R spec ./tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hypercubed/BoostArray.git"
+  },
+  "keywords": [
+    "javascript",
+    "arrays",
+    "performance",
+    "fast",
+    "filter",
+    "reduce",
+    "map"
+  ],
+  "author": "J. Harshbarger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hypercubed/BoostArray/issues"
+  },
+  "homepage": "https://github.com/Hypercubed/BoostArray",
+  "dependencies": {},
+  "devDependencies": {
+    "sinon": "^1.12.1",
+    "chai": "^1.10.0"
+  }
+}
