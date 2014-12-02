@@ -4,7 +4,7 @@
   "description": "Booster shot for Javascript Arrays",
   "main": "BoostArray.js",
   "scripts": {
-    "test": "mocha -R spec ./tests/*.js"
+    "test": "mocha -R spec ./tests/BoostArray-spec.js && mocha -R spec ./tests/BoostArray-prototype-test.js"
   },
   "repository": {
     "type": "git",

@@ -7,13 +7,27 @@ var BoostArray = require('../BoostArray.js'),
 describe('BoostArray(Array.prototype)', function() {
 	BoostArray(Array.prototype);
 
+	describe('constructor', function() {
+
+		it('should add a $boosted flag', function() {
+			var myArray = [];
+			expect(myArray.$boosted).to.equal(true);
+		});
+
+		it('should add a isBoostedArray method', function() {
+			expect(BoostArray.isBoostedArray([1,2,3])).to.be.true();
+			expect(BoostArray.isBoostedArray(BoostArray())).to.be.true();
+		});
+
+	});
+
 	describe('#forEach', function() {
 		var plainArray, spy;
 
 		beforeEach(function() {
-			plainArray = [1,2,3,4,5,6]
+			plainArray = [1,2,3,4,5,6];
 			spy = sinon.spy();
-		})
+		});
 
 		it('should run on plain array', function() {
 			plainArray.$forEach(spy);
@@ -52,7 +66,7 @@ describe('BoostArray(Array.prototype)', function() {
 			spy = sinon.spy(function(p, d) {
 				return p+d;
 			});
-		})
+		});
 
 		it('should run on boosted array', function() {
 			var result = plainArray.$reduce(spy, 0);
@@ -70,7 +84,7 @@ describe('BoostArray(Array.prototype)', function() {
 			spy = sinon.spy(function(d) {
 				return d % 3 === 0 || d % 5 === 0;
 			});
-		})
+		});
 
 		it('should run on boosted array', function() {
 			var result = plainArray.$filter(spy);

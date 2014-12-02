@@ -40,7 +40,7 @@ var boostedArray = BoostArray();
 boostedArray.$forEach(myFunc);
 ```
 
-boostedArray is initially an empty POA that has the boosted methods attached (see methods below).  Note that while `BoostArray` looks like a constructor it isn't.  It is just adding boosted methods to existing arrays, but in the example above, since no array is passed to the "constructor" BoostArray assumes you want a new array.  The following method for boosting an existing POA is recommended:
+boostedArray is initially an empty POA that has the boosted methods attached (see methods below).  Note that while `BoostArray` looks (and sort of acts) like a constructor it... it really isn't (see [here](http://www.bennadel.com/blog/2292-extending-javascript-arrays-while-keeping-native-bracket-notation-functionality.htm)).  BoostArray adds methods to existing arrays, but in the example above, since no array is passed to the "constructor" so BoostArray assumes you want a new array.  The following method for boosting an existing POA is recommended:
 
 ```
 BoostArray(myArray);
@@ -59,7 +59,7 @@ This will boost all POAs.  Any JavaScript array will now have the fast "boosted"
 ## As a boosting toolset
 
 ```
-BoostArray.$forEach.call(myArray, myFunc);
+BoostArray.prototype.$forEach.call(myArray, myFunc);
 ```
 
 Using JavaScript's `Function.prototype.call()` the BoostArray methods can be applied to any array or array like object.
@@ -70,24 +70,24 @@ A boosted array (by any of first two methods above) is still an ordinary JavaScr
 
 In addition a boosted array contains the following additional methods (notice the dollar sign for boosted methods):
 
-## BoostArray.$forEach(callback)
+## BoostArray.prototype.$forEach(callback)
 Calls the callback function for each element in the array in ascending order.
 
 > Note: Unlike `Array.prototype.forEach` there is no thisArg used for callback binding, there is no handling of sparse arrays, and the callback function is invoked with only the element value (i.e. no element index or reference to the original array).
 
-## BoostArray.$filter(callback)
+## BoostArray.prototype.$filter(callback)
 Creates a new ordinary array with all of the elements of this array for which the provided filtering function returns true.
 
 > Note: Unlike `Array.prototype.filter` there is no thisArg used for callback binding, there is no handling of sparse arrays, and the callback function is invoked with only the element value (i.e. no element index or reference to the original array).
 > Also note that unless you have boosted the Array.prototype as discussed above the returned value will not have the boosted methods attached.
 
-## BoostArray.$map(callback)
+## BoostArray.prototype.$map(callback)
 Creates a new ordinary array with the results of calling a provided function on every element in this array.
 
 > Note: Unlike `Array.prototype.map` there is no thisArg used for callback binding, there is no handling of sparse arrays, and the callback function is invoked with only the element value (i.e. no element index or reference to the original array).
 > Also note that unless you have boosted the Array.prototype as discussed above the returned value will not have the boosted methods attached.
 
-## BoostArray.$reduce(callback, initialValue)
+## BoostArray.prototype.$reduce(callback, initialValue)
 Apply a function against each value of the array (from left-to-right) as to reduce it to a single value.
 
 > Note: Unlike `Array.prototype.reduce` the initialValue is not optional, there is no handling of sparse arrays, and the callback function is invoked with only the element value (i.e. no element index or reference to the original array).
@@ -106,7 +106,7 @@ Pull requests are appreciated.  However, remember keep it fast by:
 
 # Acknowledgements
 
-BoostArray was inspired by PowerArray(https://github.com/techfort/PowerArray), fast.js(https://github.com/codemix/fast.js/tree/master), ramda(https://github.com/ramda/ramda), and lodash(https://github.com/lodash/lodash/).
+BoostArray was inspired by PowerArray(https://github.com/techfort/PowerArray), fast.js(https://github.com/codemix/fast.js/tree/master), ramda(https://github.com/ramda/ramda), and lodash(https://github.com/lodash/lodash/).  Much of the Array sub-classing code based on [Extending JavaScript Arrays While Keeping Native Bracket-Notation Functionality](http://www.bennadel.com/blog/2292-extending-javascript-arrays-while-keeping-native-bracket-notation-functionality.htm).
 
 ## License
 2014 Jayson Harshbarger
