@@ -12,7 +12,7 @@
   'use strict';
 
   /* private */
-  function extend(target) {
+  function boost(target) {
     for (var method in BoostArray.prototype) {
 			if (BoostArray.prototype.hasOwnProperty(method)) {
 				Object.defineProperty(target, method, {
@@ -31,7 +31,7 @@
 	*/
 	function BoostArray(array) {
 		array = array || [];
-		return BoostArray.isBoostedArray(array) ? array : extend(array);
+		return BoostArray.isBoostedArray(array) ? array : boost(array);
 	}
 
 	BoostArray.isArray = function( arg ){
