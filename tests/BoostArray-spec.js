@@ -4,6 +4,8 @@ var BoostArray = require('../BoostArray.js'),
 		expect = chai.expect,
 		sinon = require('sinon');
 
+console.log(BoostArray);
+
 describe('BoostArray', function() {
 
 	describe('constructor', function() {
