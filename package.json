@@ -3,8 +3,13 @@
   "version": "0.0.2",
   "description": "Booster shot for Javascript Arrays",
   "main": "BoostArray.js",
+  "files": [
+    "BoostArray.js"
+  ],
   "scripts": {
-    "test": "mocha -R spec ./tests/BoostArray-spec.js && mocha -R spec ./tests/BoostArray-prototype-test.js"
+    "test:spec": "mocha -R spec ./tests/BoostArray-spec.js",
+    "test:proto": "mocha -R spec ./tests/BoostArray-prototype-test.js",
+    "test": "npm run test:spec && npm run test:proto"
   },
   "repository": {
     "type": "git",
