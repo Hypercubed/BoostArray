@@ -2,14 +2,16 @@
   "name": "BoostArray",
   "version": "0.0.2",
   "description": "Booster shot for Javascript Arrays",
-  "main": "BoostArray.js",
+  "main": "lib/BoostArray.js",
   "files": [
+    "lib/*",
     "BoostArray.js"
   ],
   "scripts": {
     "test:spec": "mocha -R spec ./tests/BoostArray-spec.js",
     "test:proto": "mocha -R spec ./tests/BoostArray-prototype-test.js",
-    "test": "npm run test:spec && npm run test:proto"
+    "test": "npm run test:spec && npm run test:proto",
+    "build": "browserify lib/BoostArray.js -s BoostArray > BoostArray.js"
   },
   "repository": {
     "type": "git",
