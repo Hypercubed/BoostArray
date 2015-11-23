@@ -36,5 +36,10 @@
   "devDependencies": {
     "sinon": "^1.12.1",
     "chai": "^1.10.0"
+  },
+  "semistandard": {
+    "ignore": [
+      "/BoostArray.js"
+    ]
   }
 }
